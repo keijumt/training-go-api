@@ -16,6 +16,14 @@ type Controller struct {
 	StoreTaskUseCase usecase.StoreTaskUseCase
 }
 
+func NewController(
+	loadTaskUseCase usecase.LoadTaskUseCase,
+	loadTasksUseCase usecase.LoadTasksUseCase,
+	storeTaskUseCase usecase.StoreTaskUseCase,
+) Controller {
+	return Controller{loadTaskUseCase, loadTasksUseCase, storeTaskUseCase}
+}
+
 func (controller *Controller) LoadTask(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	userID, _ := strconv.Atoi(vars["userID"])

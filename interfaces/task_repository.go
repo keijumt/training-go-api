@@ -2,9 +2,14 @@ package interfaces
 
 import (
 	"github.com/keijumt/training-go/domain"
+	"github.com/keijumt/training-go/usecase"
 )
 
 type TaskRepository struct{}
+
+func NewTaskRepository() usecase.TaskRepository {
+	return &TaskRepository{}
+}
 
 // TODO Store memory or sql
 
